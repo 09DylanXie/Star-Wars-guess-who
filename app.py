@@ -64,7 +64,10 @@ def reset_board():
 
 # Helper function to load and process character images
 def load_character_image(char_name, is_eliminated):
-    filename = char_name.lower().replace(" ", "_").replace("-", "_") + ".png"
+    # Formats name, fixes the Padmé accent, and appends .png
+    filename = char_name.lower().replace(" ", "_").replace("-", "_").replace("é", "e") + ".png"
+    
+    # Looks directly in the main folder instead of an 'assets' folder
     filepath = filename
     
     try:
@@ -104,7 +107,7 @@ with st.sidebar:
     st.button("Reset Game", on_click=reset_board, type="primary", use_container_width=True)
 
 
-# --- CREATE TABS (Now 3 Tabs) ---
+# --- CREATE TABS (3 Tabs) ---
 tab1, tab2, tab3 = st.tabs(["🎮 Game Board", "📜 How to Play", "🌌 Deep Lore Database"])
 
 # --- TAB 1: MAIN GAME BOARD ---
