@@ -65,7 +65,7 @@ def reset_board():
 # Helper function to load and process character images
 def load_character_image(char_name, is_eliminated):
     filename = char_name.lower().replace(" ", "_").replace("-", "_") + ".png"
-    filepath = os.path.join("assets", filename)
+    filepath = filename
     
     try:
         img = Image.open(filepath).convert("RGBA")
